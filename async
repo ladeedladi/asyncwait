@@ -1,0 +1,65 @@
+ console.log('person1: shows ticket')
+ console.log('person2: shows ticket') 
+ const promiseWifeBringTicks= new Promise((resolve,reject)=>{
+     setTimeout(()=>{
+resolve('ticket');
+ },3000)
+ });
+
+ const getPopcorn=promiseWifeBringTicks.then((t)= >{
+     console.log('wife: i have the tickets');
+     console.log('hus:we should go in');
+     console.log('wife: no im hungry');
+     return new Promise((resolve,reject) =>resolve(`${t} popcorn`));
+    });
+ const getButter=getPopcorn.then((t)=>{ 
+     console.log('hus:i got some popcorn');
+     console.log('hus:we should go in');
+     console.log('wife:i need butter in my opcorn');  
+     return new Promise((resolve,reject) =>resolve(`${t} butter`));
+
+    });
+    getButter.then((t)=>console.log(t ))
+ console.log('person4: shows ticket')
+ console.log('person5: shows ticket')
+
+
+
+
+ console.log('person1:shows ticket');
+ console.log('person2:shows ticket');
+
+ const preMovie=async () => {
+    const promiseWifeBringTicks= new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+   resolve('ticket');
+    },3000)
+    });
+    const getPopcorn=new Promise((resolve,reject)=> resolve(`popcorn `))
+     let ticket=await promiseWifeBringTicks;
+     console.log('wife: i have the ${ticket}');
+     console.log('hus:we should go in');
+     console.log('wife: no im hungry'); 
+
+     let popcorn= await getPopcorn;
+     console.log(`hus:i got some ${popcorn}`);
+     console.log('hus:we should go in');
+     console.log('wife:i need butter in my opcorn');
+     let butter= await addButter;
+     console.log(`hus:i got some ${butter}`);
+     console.log(`hus:anything else`);
+     console.log(`wife:need some coldrinks`);
+    
+     let coldDrinks= await getColdDrinks;
+     console.log(`hus:i got some ${coldDrinks}`);
+     console.log(`hus:anything else`);
+     console.log(`wife:lets go we are getting late`);
+     console.log(`hus:okay`);
+
+
+     return ticket;
+     
+ }
+ preMovie.then((m)=>console.log(`person3:shows ${m}`))
+ console.log('person4:shows ticket');
+ console.log('person5:shows ticket');
